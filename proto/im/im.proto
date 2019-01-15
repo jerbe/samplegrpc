@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package im;
+
+service IM {
+  rpc Sample(Request) returns (Response){}
+  rpc ResponseStream(Request) returns (stream Response){}
+  rpc RequestStream(stream Request) returns (Response){}
+  rpc BilateralStream(stream Request) returns (stream Response){}
+}
+
+message Request {
+  string message = 1;
+}
+
+message Response {
+  string message = 1;
+}
